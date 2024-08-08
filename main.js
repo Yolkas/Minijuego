@@ -97,10 +97,10 @@ function checkAnswer(answer) {
     if (answer === currentQuestion.correctAnswer) {
         score++;
         this.scoreText.setText('Puntuación: ' + score);
+        currentQuestionIndex++;
+        loadQuestion.call(this);
     } else {
-        alert('Incorrecto. La respuesta correcta es ' + currentQuestion.correctAnswer);
+        this.questionText.setText('Incorrecto. La respuesta correcta es ' + currentQuestion.correctAnswer + '. ¡Juego terminado!');
+        this.answers.forEach(answer => answer.setText(''));
     }
-
-    currentQuestionIndex++;
-    loadQuestion.call(this);
 }
